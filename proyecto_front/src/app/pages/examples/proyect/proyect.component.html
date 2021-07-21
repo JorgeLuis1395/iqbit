@@ -1,0 +1,162 @@
+<nav
+        class="navbar navbar-expand-lg fixed-top navbar-transparent"
+        color-on-scroll="100"
+        id="navbar-top"
+>
+    <div class="container">
+        <div class="navbar-translate">
+            <a
+                    class="navbar-brand"
+                    [routerLink]="['/home']"
+                    placement="bottom"
+                    tooltip="Designed and Coded by Creative Tim"
+            >
+                <span> IQBIT• </span> TEST FRONTEND
+            </a>
+
+        </div>
+
+    </div>
+</nav>
+<div class="wrapper">
+    <div class="page-header">
+        <img class="path" src="assets/img/blob.png"/>
+
+        <img class="path2" src="assets/img/path2.png"/>
+
+        <img class="shapes triangle" src="assets/img/triunghiuri.png"/>
+
+        <img class="shapes wave" src="assets/img/waves.png"/>
+
+        <img class="shapes squares" src="assets/img/patrat.png"/>
+
+        <img class="shapes circle" src="assets/img/cercuri.png"/>
+
+        <div class="content-center">
+            <div
+                    class="row row-grid justify-content-between align-items-center text-left"
+            >
+                <div class="col-lg-6 col-md-6">
+                    <a [href]="response.html_url" target="_blank"><h1 class="text-white" [tooltip]="response.login">
+                        {{response.login}} <br/>
+                    </h1></a>
+                    <p class="text-white mb-3" [tooltip]="response.followers">
+                        <b class="category text-success d-inline mr-1">Seguidores: </b> {{response.followers}}
+                    </p>
+                    <p class="text-white mb-3" [tooltip]="response.following">
+                        <b class="category text-success d-inline mr-1">Siguiendo: </b> {{response.following}}
+                    </p>
+                    <p class="text-white mb-3" [tooltip]="response.public_repos">
+                        <b class="category text-success d-inline mr-1">Proyectos: </b>{{response.public_repos}}
+                    </p>
+                    <p class="text-white mb-3" [tooltip]="response.created_at">
+                        <b class="category text-success d-inline mr-1">Fecha
+                            Creación: </b>{{response.created_at | date: 'dd/MM/YYYY'}}
+                    </p>
+                    <p class="text-white mb-3">
+                        <b class="category text-success d-inline mr-1">Fecha
+                            Actualización: </b>{{response.updated_at | date: 'dd/MM/YYYY'}}
+                    </p>
+
+
+                </div>
+                <div class="col-lg-4 col-md-5">
+                    <img
+                            alt="Avatar"
+                            class="img-fluid" tooltip="Avatar"
+                            [src]="response.avatar_url"
+                            onerror="this.src='http://simpleicon.com/wp-content/uploads/user1.png';"
+                    />
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1 class="mb-3">Repositorios</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-10 ml-auto col-xl-6 mr-auto" *ngFor="let proyecto of proyect">
+                <div class="mb-3">
+                    <h2 class="text-uppercase font-weight-bold" s>{{proyecto.name}}</h2>
+                </div>
+                <!-- Nav tabs -->
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs nav-tabs-primary" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active show" data-toggle="tab" href="#link1" role="tablist">
+                                    <i class="tim-icons icon-spaceship"></i> Detalle
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link show" data-toggle="tab" [href]="proyecto.html_url"  target="_blank" role="tablist">
+                                    <i class="tim-icons icon-spaceship"></i> Proyecto
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <!-- Tab panes -->
+                        <div class="tab-content tab-space">
+                            <div class="tab-pane active show" id="link1">
+                                <p>
+                                    <span><b style="color: #00b290">Descripción</b>: </span>{{proyecto.description}}.<br>
+                                    <span><b style="color: #00b290">Fecha de Creación</b>:</span> {{proyecto.created_at}}<br>
+                                    <span><b style="color: #00b290">Fecha de Actualización</b>:</span> {{proyecto.updated_at}}<br>
+                                    <span><b style="color: #00b290">Último commit</b>:</span> {{proyecto.pushed_at}}<br>
+                                    <span><b style="color: #00b290">Tamaño</b>: </span>{{proyecto.size}}<br>
+                                    <span><b style="color: #00b290">Lenguaje</b>: </span>{{proyecto.language}}
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><h1 class="title">IQBIT</h1></div>
+                <div class="col-md-3">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/home']"> Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/proyect']"> Proyectos </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="title">Redes Sociales:</h3>
+                    <div class="btn-wrapper profile">
+                        <a
+                                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+                                href="https://github.com/JorgeLuis1395"
+                                target="_blank"
+                        >
+                            <i class="fab fa-github"> </i>
+                        </a>
+                        <a
+                                class="btn btn-icon btn-neutral btn-round btn-simple mr-1"
+                                href="https://www.facebook.com/jorcarrill"
+                                target="_blank"
+                        >
+                            <i class="fab fa-facebook-square"> </i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
