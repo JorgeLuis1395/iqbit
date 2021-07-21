@@ -1,17 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import {Controller, Get, Param, Res} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  /*@Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }*/
-
-  @Get()
-  getUserId(): string {
-    return this.appService.getUserId('RbknRQ3to0PMts0QU6QWMIprjqL2');
+  /*Controlador para consultar por id*/
+  @Get('user/:id')
+  async findId(@Param('id') id, @Res() response) {
+    return response.send(await this.appService.getUserId(id));
   }
+
+  @Get( 'users')
+  async findPosition(@Param('position') position, @Res() response) {
+    return response.send(await this.appService.getUserPosition(position));
+  }
+
 }

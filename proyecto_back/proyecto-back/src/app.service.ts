@@ -19,11 +19,22 @@ export class AppService {
    let user= value.filter(word => word.id.toString() === idUser.toString())
       console.log(user)
       return user
-  }/*
+  }
 
-  getUserPosition(){
+  getUserPosition(posicion){
 
-  }*/
+      console.log(JSON.parse(words))
+      let value = JSON.parse(words)
+   let user= value.indexOf(posicion);
+      if(user === 0){
+         return  value[posicion]
+      }
+      else
+      {
+          return 'No existe elemento en la posicion'
+      }
+
+  }
 
 
 
